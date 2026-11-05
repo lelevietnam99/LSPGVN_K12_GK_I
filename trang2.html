@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Tập Lịch Sử Phật Giáo Việt Nam - Trang 2</title>
+    <style>
+        :root {
+            --primary-glow: #0284c7;
+            --secondary-glow: #7928CA;
+            --accent-gold: #FFD700;
+            --accent-cyan: #00F2FE;
+            --bg-card: rgba(15, 23, 42, 0.75);
+            --border-card: rgba(255, 255, 255, 0.15);
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            background: #030712;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        /* Background Vũ Trụ */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #0f172a 0%, #030712 100%);
+            overflow: hidden;
+        }
+
+        .nebula {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.35;
+            animation: float 22s infinite alternate ease-in-out;
+        }
+
+        .nebula-1 {
+            top: -150px;
+            right: -100px;
+            background: var(--primary-glow);
+        }
+
+        .nebula-2 {
+            bottom: -100px;
+            left: -100px;
+            background: var(--secondary-glow);
+            animation-delay: -8s;
+        }
+
+        .nebula-3 {
+            top: 50%;
+            left: 40%;
+            transform: translate(-50%, -50%);
+            background: #FF0080;
+            width: 450px;
+            height: 450px;
+            opacity: 0.18;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-60px, 60px) scale(1.1); }
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.15);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow));
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFF 30%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Card Section */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(255, 215, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--accent-cyan);
+            border-bottom: 2px solid rgba(0, 242, 254, 0.2);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Quote / Key Takeaways Box */
+        .quote-box {
+            background: rgba(121, 40, 202, 0.12);
+            border-left: 4px solid var(--secondary-glow);
+            padding: 18px 24px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 25px;
+            font-style: italic;
+            color: #E2E8F0;
+        }
+
+        /* Content Formatting */
+        h3.sub-heading {
+            color: var(--accent-gold);
+            margin: 25px 0 12px 0;
+            font-size: 1.25rem;
+        }
+
+        h4.part-heading {
+            color: var(--accent-cyan);
+            margin: 18px 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        ul, ol {
+            padding-left: 22px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #FFF;
+        }
+
+        .highlight-gold {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .highlight-cyan {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        /* Books List Grid */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .book-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 16px;
+        }
+
+        .book-card .title {
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        /* Footer Nav */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars-container">
+        <div class="nebula nebula-1"></div>
+        <div class="nebula nebula-2"></div>
+        <div class="nebula nebula-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <span class="badge">Trang 2 / 2 • Môn Lịch Sử Phật Giáo Việt Nam</span>
+            <h1>Thiền Sư Khương Tăng Hội & Thiền Học Thế Kỷ III</h1>
+            <p class="subtitle">Nội dung chi tiết Câu 2: Vai trò của Thiền sư Khương Tăng Hội trong việc thiết lập Thiền học ở Việt Nam</p>
+        </header>
+
+        <!-- Quote tiêu biểu -->
+        <div class="quote-box">
+            "Từ Giao Châu lan tỏa trí tuệ, đưa Thiền học vươn xa — Thiền sư Khương Tăng Hội là người tiên phong đưa Thiền học Việt Nam kết nối Phật giáo Việt với Trung Hoa."
+        </div>
+
+        <!-- Nội dung Câu 2 -->
+        <div class="card">
+            <h2 class="section-title">📜 CÂU 2: Vai Trò Của Thiền Sư Khương Tăng Hội Trắc Nghiệm / Tự Luận</h2>
+
+            <!-- I. MỞ BÀI -->
+            <h3 class="sub-heading">I. MỞ BÀI</h3>
+            <p>Trong dòng chảy lịch sử Phật giáo Việt Nam, <strong>Thiền sư Khương Tăng Hội</strong> giữ vị trí mang tính khai sơn lập địa, được tôn vinh là <span class="highlight-gold">Sơ tổ Thiền học Việt Nam</span>. Ngài là người đặt nền móng và định hình nên truyền thống Thiền định Đại thừa tại vùng đất Giao Châu vào nửa đầu thế kỷ III. Sống và tu học tại trung tâm Phật giáo Luy Lâu, Ngài không chỉ biến Thiền định từ giáo lý thành thực tiễn sinh hoạt của Tăng đoàn bản địa, mà còn tạo tiền đề để tư tưởng Thiền học Giao Châu lan tỏa sang phương Bắc.</p>
+
+            <!-- II. THÂN BÀI -->
+            <h3 class="sub-heading">II. THÂN BÀI</h3>
+
+            <!-- 1. Xuất thân & Cuộc đời -->
+            <h4 class="part-heading">1. Xuất thân và cuộc đời của Thiền sư Khương Tăng Hội</h4>
+            <ul>
+                <li><strong>Xuất thân đặc biệt:</strong> Ngài Khương Tăng Hội (? - viên tịch năm 280) vốn gốc Khương Cư (Sogdiane) trên Con đường Tơ lụa. Thân phụ di cư đến Giao Châu làm ăn và lấy vợ người Giao Châu nên <span class="highlight-cyan">Ngài mang dòng máu người Việt</span>.</li>
+                <li><strong>Tu học tại Luy Lâu:</strong> Song thân mất sớm, Ngài vào chùa Luy Lâu tu học và trở thành Thiền sư.</li>
+                <li><strong>Tài năng uyên bác:</strong> Sách <em>Cao Tăng Truyện</em> mô tả Ngài là người <em>"Rộng rãi, nhã nhặn, có tầm hiểu biết, dốc chí hiếu học, rõ hiểu ba tạng, xem khắp sáu kinh; thiên văn đồ vĩ phần lớn biết hết; giỏi việc ăn nói, rành việc viết văn"</em>.</li>
+                <li><strong>Truyền bá sang Trung Hoa:</strong> Danh tiếng lan xa đến nước Đông Ngô (thời Tam Quốc). Mẹ Tôn Quyền cho người mời Ngài qua Trung Hoa hoằng pháp. Ngài lập chùa Kiến Sơ, trở thành người tiên phong mang Phật giáo đến vùng đất này.</li>
+            </ul>
+
+            <!-- 2. Mở trường đào tạo & định hình thiền học -->
+            <h4 class="part-heading">2. Trực tiếp mở trường đào tạo thiền sinh & thực hành Thiền định đầu tiên</h4>
+            <ul>
+                <li><strong>Mở lớp dạy Thiền có tổ chức:</strong> Trực tiếp giảng dạy và hướng dẫn thực hành thiền định cho khoảng <span class="highlight-gold">300 thiền sinh</span> tại chùa Pháp Vân (trung tâm Luy Lâu, Bắc Ninh).</li>
+                <li><strong>Chuyển hóa thành phong trào thực tu:</strong> Đưa sinh hoạt Phật giáo chuyển từ <em>Phật giáo chức năng</em> (cầu an, cầu mưa, cầu phước) sang con đường chính thức thực tập thiền định để làm chủ tâm thức.</li>
+                <li><strong>Đại thừa hóa Thiền học nguyên thủy:</strong> Chuyển hóa phương pháp luyện thở nguyên thủy thành phương tiện Bồ tát đạo nhập thế phụng sự và giải thoát chúng sinh.</li>
+                <li><strong>Xây dựng triết lý:</strong> Định hình triết lý Tâm học Bát Nhã - Chân Như.</li>
+            </ul>
+
+            <!-- 3. Biên soạn & dịch thuật kinh điển -->
+            <h4 class="part-heading">3. Biên soạn, dịch thuật và xây dựng hệ thống kinh điển Thiền học nền tảng</h4>
+            <p>Để phục vụ công tác giảng dạy, Ngài đã phiên dịch, chú giải và biên soạn hệ thống kinh điển làm "giáo trình" thiền học chính thức:</p>
+            
+            <div class="books-grid">
+                <div class="book-card">
+                    <div class="title">📖 Kinh An Ban Thủ Ý</div>
+                    <p>Ngài chú giải, san định và viết bài tựa. <em>An Ban</em> = hơi thở; <em>Thủ Ý</em> = nhiếp tâm, điều hòa hơi thở. Dạy thiền sinh thực tập thiền tương ứng kinh Tứ Niệm Xứ.</p>
+                </div>
+                <div class="book-card">
+                    <div class="title">📖 Lục Độ Tập Kinh</div>
+                    <p>Biên soạn về sáu pháp tu Bồ tát: Bố thí, Trì giới, Nhẫn nhục, Tinh tấn, Thiền định, Trí tuệ.</p>
+                </div>
+                <div class="book-card">
+                    <div class="title">📜 Các tác phẩm khác</div>
+                    <ul style="padding-left: 16px; margin-bottom: 0; font-size: 0.95rem;">
+                        <li>Kinh Pháp Cảnh (chú giải, đề tựa)</li>
+                        <li>Kinh Đạo Thọ (chú giải, đề tựa)</li>
+                        <li>Lục Độ Yếu Mục (biên tập)</li>
+                        <li>Nê Hoàn Phạm Bối (biên tập)</li>
+                        <li>Kinh Đạo Hành Bát Nhã (dịch)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- III. KẾT BÀI -->
+            <h3 class="sub-heading">III. KẾT BÀI</h3>
+            <p>Thiền sư Khương Tăng Hội có <span class="highlight-gold">vai trò mở đường và đặt nền móng toàn diện</span> cho Thiền học Việt Nam vào thế kỷ III. Bằng việc đào tạo tăng sinh, khởi thảo hệ thống kinh điển hành thiền và định hình tư tưởng Thiền Đại thừa - Bát Nhã, Ngài đã biến Luy Lâu thành trung tâm Thiền học hưng thịnh, khẳng định sức sống độc lập của Phật giáo Việt Nam từ buổi đầu Công nguyên.</p>
+        </div>
+
+        <footer>
+            <p>© Ôn tập Lịch Sử Phật Giáo Việt Nam • Hoàn thành 2 trang ôn tập theo tài liệu K.12</p>
+        </footer>
+    </div>
+
+</body>
+</html>

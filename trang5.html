@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Tập Lịch Sử Phật Giáo Việt Nam - Trang 5</title>
+    <style>
+        :root {
+            --primary-glow: #7928CA;
+            --secondary-glow: #FF0080;
+            --accent-gold: #FFD700;
+            --accent-cyan: #00F2FE;
+            --bg-card: rgba(15, 23, 42, 0.78);
+            --border-card: rgba(255, 255, 255, 0.15);
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            background: #030712;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        /* Background Vũ Trụ */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #0d1527 0%, #030712 100%);
+            overflow: hidden;
+        }
+
+        .nebula {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.35;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+
+        .nebula-1 {
+            top: -100px;
+            right: -100px;
+            background: var(--accent-gold);
+            opacity: 0.2;
+        }
+
+        .nebula-2 {
+            bottom: -150px;
+            left: -100px;
+            background: var(--primary-glow);
+            animation-delay: -10s;
+        }
+
+        .nebula-3 {
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--secondary-glow);
+            width: 450px;
+            height: 450px;
+            opacity: 0.18;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(60px, -60px) scale(1.15); }
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--secondary-glow));
+            color: #000;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFF 30%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Card Section */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(255, 215, 0, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--accent-gold);
+            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Comparison Table */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.95rem;
+        }
+
+        .compare-table th, .compare-table td {
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 14px 16px;
+            text-align: left;
+        }
+
+        .compare-table th {
+            background: rgba(121, 40, 202, 0.3);
+            color: var(--accent-gold);
+            font-size: 1.05rem;
+        }
+
+        .compare-table tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Flashcards Grid */
+        .flashcard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .flashcard {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .flashcard .q-title {
+            color: var(--accent-cyan);
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .flashcard .a-text {
+            color: #E2E8F0;
+            font-size: 0.95rem;
+        }
+
+        /* Quiz Box */
+        .quiz-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 15px;
+        }
+
+        .quiz-question {
+            font-weight: 600;
+            color: #FFF;
+            margin-bottom: 10px;
+        }
+
+        .quiz-answer {
+            background: rgba(0, 242, 254, 0.1);
+            border-left: 3px solid var(--accent-cyan);
+            padding: 10px 14px;
+            border-radius: 0 8px 8px 0;
+            color: #CBD5E1;
+            font-size: 0.93rem;
+        }
+
+        /* Footer Nav */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars-container">
+        <div class="nebula nebula-1"></div>
+        <div class="nebula nebula-2"></div>
+        <div class="nebula nebula-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <span class="badge">Trang 5 • Môn Lịch Sử Phật Giáo Việt Nam</span>
+            <h1>Bảng Tra Cứu So Sánh & Câu Hỏi Ôn Tập Củng Cố</h1>
+            <p class="subtitle">Tổng hợp so sánh hai thiền phái, từ khóa cốt lõi và ngân hàng câu hỏi nhớ nhanh phục vụ thi cử</p>
+        </header>
+
+        <!-- Bảng So Sánh 2 Thiền Phái -->
+        <div class="card">
+            <h2 class="section-title">📊 Bảng So Sánh Hai Thiền Phái Đầu Tiên Tại Việt Nam</h2>
+            <div style="overflow-x: auto;">
+                <table class="compare-table">
+                    <thead>
+                        <tr>
+                            <th>Tiêu Chí So Sánh</th>
+                            <th>Thiền Phái Tỳ Ni Đa Lưu Chi</th>
+                            <th>Thiền Phái Vô Ngôn Thông</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Năm thành lập</strong></td>
+                            <td>Năm <strong>580 SCN</strong> (Thế kỷ VI)</td>
+                            <td>Năm <strong>820 SCN</strong> (Thế kỷ IX)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Thiền sư sáng lập</strong></td>
+                            <td>Thiền sư Tỳ Ni Đa Lưu Chi (người Ấn Độ)</td>
+                            <td>Thiền sư Vô Ngôn Thông (người Trung Hoa, 759-826)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Trung tâm / Chùa</strong></td>
+                            <td>Chùa Pháp Vân (Chùa Dâu, Thuận Thành, Bắc Ninh)</td>
+                            <td>Chùa Kiến Sơ (Gia Lâm, Hà Nội)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Số thế hệ truyền thừa</strong></td>
+                            <td><strong>19 thế hệ</strong></td>
+                            <td><strong>17 thế hệ</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tư tưởng & Tôn chỉ</strong></td>
+                            <td>Bát Nhã, siêu việt hữu vô; kết hợp Tịnh độ và Mật giáo.</td>
+                            <td><em>"Tâm địa nhược thông, tuệ nhật tự chiếu"</em> (Tâm thông thì trí sáng).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kinh điển căn bản</strong></td>
+                            <td><em>Tượng Đầu Tinh Xá</em>, <em>Nghiệp Báo Sai Biệt</em>...</td>
+                            <td><em>Kinh Tâm Địa Quán</em>, <em>Kinh Viên Giác</em>, <em>Kinh Bát Nhã</em>...</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Xu hướng ảnh hưởng</strong></td>
+                            <td>Ảnh hưởng Phật giáo Ấn Độ; gắn liền với phong trào dân tộc độc lập.</td>
+                            <td>Đánh dấu thời kỳ ảnh hưởng Phật giáo Trung Hoa thay cho Ấn Độ.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Trắc nghiệm / Flashcard nhớ nhanh -->
+        <div class="card">
+            <h2 class="section-title">⚡ Flashcards Nhớ Nhanh Từ Khóa Trọng Tâm</h2>
+            <div class="flashcard-grid">
+                <div class="flashcard">
+                    <div class="q-title">🔑 Tác phẩm chữ Hán cổ nhất?</div>
+                    <div class="a-text"><strong>Lý Hoặc Luận</strong> do Mâu Tử (Mâu Bác) sáng tác tại Giao Châu cuối thế kỷ II.</div>
+                </div>
+                <div class="flashcard">
+                    <div class="q-title">🔑 Sơ tổ Thiền học Việt Nam là ai?</div>
+                    <div class="a-text"><strong>Thiền sư Khương Tăng Hội</strong> (Thế kỷ III), người dạy thiền cho 300 thiền sinh tại Luy Lâu.</div>
+                </div>
+                <div class="flashcard">
+                    <div class="q-title">🔑 Hệ thống Tứ Pháp gồm những gì?</div>
+                    <div class="a-text"><strong>Pháp Vân</strong> (Mây), <strong>Pháp Vũ</strong> (Mưa), <strong>Pháp Lôi</strong> (Sấm), <strong>Pháp Điện</strong> (Chớp).</div>
+                </div>
+                <div class="flashcard">
+                    <div class="q-title">🔑 Tên gọi Đức Phật thời kỳ đầu?</div>
+                    <div class="a-text">Ông <strong>"Bụt"</strong> (phiên âm từ <em>Buddha</em> trong tiếng Phạn).</div>
+                </div>
+                <div class="flashcard">
+                    <div class="q-title">🔑 Tranh luận PG lần 2 ở thế kỷ nào?</div>
+                    <div class="a-text"><strong>Thế kỷ IV</strong>, do Thiền sư Đạo Ca & Pháp Minh lý giải qua 6 bức thư gửi Thứ sử Lý Miễu.</div>
+                </div>
+                <div class="flashcard">
+                    <div class="q-title">🔑 Pháp môn Tịnh độ bắt đầu từ đâu?</div>
+                    <div class="a-text"><strong>Thế kỷ V</strong>, do Thiền sư Đàm Hoàng truyền bá tại chùa Tiên Du (núi Tiên Sơn).</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Câu hỏi ôn luyện tự luận ngắn -->
+        <div class="card">
+            <h2 class="section-title">❓ Câu Hỏi Ôn Luyện Củng Cố Kiến Thức Tự Luận</h2>
+
+            <div class="quiz-item">
+                <div class="quiz-question">Câu 1: Vì sao nói quá trình du nhập Phật giáo vào Việt Nam trong 2 thế kỷ đầu mang tính chất "bản địa hóa"?</div>
+                <div class="quiz-answer">
+                    <strong>Gợi ý đáp án:</strong> Vì Phật giáo không phá bỏ tín ngưỡng dân gian mà hòa nhập vào văn minh lúa nước (dung hợp thần tự nhiên thành Tứ Pháp), biến Đức Phật thành ông "Bụt" nhân từ gần gũi, tiếp biến với đạo lý hiếu thảo và dùng tinh thần Tam giáo hòa hợp (Mâu Tử - Lý Hoặc Luận) để dung hòa với Nho - Lão.
+                </div>
+            </div>
+
+            <div class="quiz-item">
+                <div class="quiz-question">Câu 2: Nêu 3 đóng góp quan trọng nhất của Thiền sư Khương Tăng Hội đối với Thiền học Việt Nam.</div>
+                <div class="quiz-answer">
+                    <strong>Gợi ý đáp án:</strong> (1) Trực tiếp mở trường đào tạo 300 thiền sinh đầu tiên tại Luy Lâu; (2) Chuyển hóa Thiền học từ hình thức chức năng sang thực tu thiền định; (3) Dịch thuật và biên soạn hệ thống giáo trình kinh điển Thiền học nền tảng (<em>An Ban Thủ Ý</em>, <em>Lục Độ Tập Kinh</em>).
+                </div>
+            </div>
+
+            <div class="quiz-item">
+                <div class="quiz-question">Câu 3: Quy tắc viết bài tự luận môn Lịch sử Phật giáo Việt Nam cần ghi nhớ điều gì?</div>
+                <div class="quiz-answer">
+                    <strong>Gợi ý đáp án:</strong> Đủ 3 phần Mở - Thân - Kết; Viết thế kỷ bằng số La Mã (I, II, III...); Dẫn chứng cụ thể, chính xác tên tác phẩm, nhân vật và nội dung trong ngoặc kép.
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© Bộ 5 Trang HTML Ôn Tập Lịch Sử Phật Giáo Việt Nam • Hoàn thành toàn bộ hệ thống kiến thức ôn thi!</p>
+        </footer>
+    </div>
+
+</body>
+</html>

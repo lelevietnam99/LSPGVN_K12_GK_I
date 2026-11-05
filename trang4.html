@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Tập Lịch Sử Phật Giáo Việt Nam - Trang 4</title>
+    <style>
+        :root {
+            --primary-glow: #0284c7;
+            --secondary-glow: #7928CA;
+            --accent-gold: #FFD700;
+            --accent-cyan: #00F2FE;
+            --accent-pink: #FF0080;
+            --bg-card: rgba(15, 23, 42, 0.75);
+            --border-card: rgba(255, 255, 255, 0.15);
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            background: #030712;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        /* Background Vũ Trụ */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #0c1322 0%, #030712 100%);
+            overflow: hidden;
+        }
+
+        .nebula {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.35;
+            animation: float 24s infinite alternate ease-in-out;
+        }
+
+        .nebula-1 {
+            top: -100px;
+            left: -100px;
+            background: var(--accent-pink);
+        }
+
+        .nebula-2 {
+            bottom: -150px;
+            right: -100px;
+            background: var(--primary-glow);
+            animation-delay: -12s;
+        }
+
+        .nebula-3 {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--secondary-glow);
+            width: 450px;
+            height: 450px;
+            opacity: 0.2;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-50px, 70px) scale(1.12); }
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.15);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: linear-gradient(90deg, var(--accent-pink), var(--primary-glow));
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFF 30%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Card Section */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(0, 242, 254, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--accent-cyan);
+            border-bottom: 2px solid rgba(0, 242, 254, 0.2);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Highlight Box */
+        .quote-box {
+            background: rgba(0, 242, 254, 0.08);
+            border-left: 4px solid var(--accent-cyan);
+            padding: 18px 24px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 25px;
+            color: #E2E8F0;
+        }
+
+        /* Content Formatting */
+        h3.sub-heading {
+            color: var(--accent-gold);
+            margin: 25px 0 12px 0;
+            font-size: 1.25rem;
+        }
+
+        h4.part-heading {
+            color: var(--accent-cyan);
+            margin: 18px 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        ul, ol {
+            padding-left: 22px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #FFF;
+        }
+
+        .highlight-gold {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .highlight-cyan {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        /* Grid Cards */
+        .sect-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .sect-card {
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 22px;
+        }
+
+        .sect-card .tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: rgba(255, 215, 0, 0.15);
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .sect-card h4 {
+            color: #FFF;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        /* Footer Nav */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars-container">
+        <div class="nebula nebula-1"></div>
+        <div class="nebula nebula-2"></div>
+        <div class="nebula nebula-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <span class="badge">Trang 4 • Môn Lịch Sử Phật Giáo Việt Nam</span>
+            <h1>Tranh Luận Tôn Giáo & Hai Thiền Phái Đầu Tiên</h1>
+            <p class="subtitle">Chi tiết các cột mốc lịch sử từ Thế kỷ IV đến Thế kỷ IX (Tỳ Ni Đa Lưu Chi & Vô Ngôn Thông)</p>
+        </header>
+
+        <div class="quote-box">
+            📌 <strong>Tóm lược hành trình:</strong> Sau khi du nhập (TK I-II) và định hình Thiền học (TK III), Phật giáo Việt Nam tiếp tục trải qua các cuộc tranh luận tư tưởng (TK IV), tiếp nhận Tịnh độ tông (TK V), thành lập Thiền phái Tỳ Ni Đa Lưu Chi (TK VI) và Thiền phái Vô Ngôn Thông (TK IX).
+        </div>
+
+        <!-- Khối Thế kỷ IV & V -->
+        <div class="card">
+            <h2 class="section-title">✨ Thế Kỷ IV & V: Tranh Luận Tôn Giáo & Sự Truyền Bá Tịnh Độ</h2>
+
+            <div class="sect-grid">
+                <!-- Thế kỷ IV -->
+                <div class="sect-card">
+                    <span class="tag">THẾ KỶ IV</span>
+                    <h4>Cuộc Tranh Luận Phật Giáo Lần 2</h4>
+                    <ul>
+                        <li><strong>Chủ đề:</strong> <em>"Đức Phật có hiện hữu giữa đời này hay không?"</em></li>
+                        <li><strong>Nhân vật lý giải:</strong> Thiền sư <span class="highlight-cyan">Đạo Ca</span> và <span class="highlight-cyan">Pháp Minh</span>.</li>
+                        <li><strong>Hình thức:</strong> Thông qua <strong>sáu bức thư</strong> gửi cho Thứ sử Lý Miễu để giải thích cho giới trí thức Nho - Lão.</li>
+                        <li><strong>Ý nghĩa:</strong> Khẳng định tính hiện hữu linh ứng của Đức Phật, bảo vệ Chánh pháp trước những nghi ngờ tư tưởng thời bấy giờ.</li>
+                    </ul>
+                </div>
+
+                <!-- Thế kỷ V -->
+                <div class="sect-card">
+                    <span class="tag">THẾ KỶ V</span>
+                    <h4>Sự Truyền Bá Pháp Môn Tịnh Độ</h4>
+                    <ul>
+                        <li><strong>Sự kiện:</strong> Thiền sư <span class="highlight-gold">Đàm Hoàng</span> truyền bá pháp môn tu tập Tịnh độ.</li>
+                        <li><strong>Địa điểm:</strong> Chùa Tiên Du, núi Tiên Sơn.</li>
+                        <li><strong>Ý nghĩa:</strong> Phật giáo Việt Nam chính thức tiếp thu pháp môn Tịnh độ hướng tới xây dựng Phật quốc, tạo nên nét đặc trưng kết hợp Thiền - Tịnh song tu.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Khối Thiền Phái Thế kỷ VI & IX -->
+        <div class="card">
+            <h2 class="section-title">🧘‍♂️ Thế Kỷ VI & IX: Hai Thiền Phái Lớn Đầu Tiên</h2>
+
+            <div class="sect-grid">
+                <!-- Tỳ Ni Đa Lưu Chi -->
+                <div class="sect-card">
+                    <span class="tag">THẾ KỶ VI (580 SCN)</span>
+                    <h4 style="color: var(--accent-cyan);">Thiền Phái Tỳ Ni Đa Lưu Chi</h4>
+                    <ul>
+                        <li><strong>Sáng lập:</strong> Thiền sư <span class="highlight-cyan">Tỳ Ni Đa Lưu Chi</span> (người Ấn Độ) lập tại <strong>chùa Pháp Vân</strong> (còn gọi là dòng thiền Pháp Vân / chùa Dâu).</li>
+                        <li><strong>Sự truyền thừa:</strong> Truyền qua <strong>19 thế hệ</strong>.</li>
+                        <li><strong>Kinh điển căn bản:</strong> <em>Tượng Đầu Tinh Xá</em>, <em>Nghiệp Báo Sai Biệt</em>...</li>
+                        <li><strong>Tư tưởng chủ đạo:</strong> Ảnh hưởng tư tưởng Bát Nhã, siêu việt hữu vô, siêu việt ngôn ngữ. Kết hợp uyển chuyển giữa Thiền định, Mật giáo và Tịnh độ.</li>
+                        <li><strong>Đóng góp:</strong> Ảnh hưởng sâu rộng trong quần chúng, góp phần quan trọng vào công cuộc giải phóng dân tộc và giành độc lập tự chủ (938).</li>
+                    </ul>
+                </div>
+
+                <!-- Vô Ngôn Thông -->
+                <div class="sect-card">
+                    <span class="tag">THẾ KỶ IX (820 SCN)</span>
+                    <h4 style="color: var(--accent-gold);">Thiền Phái Vô Ngôn Thông</h4>
+                    <ul>
+                        <li><strong>Sáng lập:</strong> Thiền sư <span class="highlight-gold">Vô Ngôn Thông</span> (759-826, từ Trung Hoa sang) lập tại <strong>chùa Kiến Sơ</strong> (Gia Lâm, Hà Nội).</li>
+                        <li><strong>Sự truyền thừa:</strong> Truyền qua <strong>17 thế hệ</strong>.</li>
+                        <li><strong>Tôn chỉ:</strong> <em style="color: var(--accent-gold);">"Tâm địa nhược thông, tuệ nhật tự chiếu"</em> (Đất tâm nếu thông suốt thì mặt trời trí tuệ tự chiếu sáng).</li>
+                        <li><strong>Kinh điển căn bản:</strong> <em>Kinh Tâm Địa Quán</em>, <em>Kinh Viên Giác</em>, <em>Kinh Bát Nhã</em>...</li>
+                        <li><strong>Đóng góp:</strong> Tích cực nhập thế, đóng góp cho đạo và đời. Đánh dấu thời điểm Phật giáo VN bắt đầu tiếp cận và ảnh hưởng Phật giáo Trung Hoa thay cho ảnh hưởng Ấn Độ trước đó.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© Ôn tập Lịch Sử Phật Giáo Việt Nam • Trang 4: Tranh luận tôn giáo & Hai dòng Thiền phái lớn</p>
+        </footer>
+    </div>
+
+</body>
+</html>

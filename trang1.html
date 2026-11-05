@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Tập Lịch Sử Phật Giáo Việt Nam - Trang 1</title>
+    <style>
+        :root {
+            --primary-glow: #7928CA;
+            --secondary-glow: #FF0080;
+            --accent-gold: #FFD700;
+            --accent-cyan: #00F2FE;
+            --bg-card: rgba(15, 23, 42, 0.75);
+            --border-card: rgba(255, 255, 255, 0.15);
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            background: #030712;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        /* Background Vũ Trụ */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #111827 0%, #030712 100%);
+            overflow: hidden;
+        }
+
+        .nebula {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.35;
+            animation: float 20s infinite alternate ease-in-out;
+        }
+
+        .nebula-1 {
+            top: -100px;
+            left: -100px;
+            background: var(--primary-glow);
+        }
+
+        .nebula-2 {
+            bottom: -150px;
+            right: -100px;
+            background: var(--secondary-glow);
+            animation-delay: -10s;
+        }
+
+        .nebula-3 {
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #0284c7;
+            width: 400px;
+            height: 400px;
+            opacity: 0.2;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(80px, 50px) scale(1.15); }
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 0 30px rgba(121, 40, 202, 0.2);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: linear-gradient(90deg, var(--primary-glow), var(--secondary-glow));
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFF 30%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Card Section */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(0, 242, 254, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--accent-cyan);
+            border-bottom: 2px solid rgba(0, 242, 254, 0.2);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Notes Box */
+        .exam-notes {
+            background: rgba(255, 215, 0, 0.08);
+            border-left: 4px solid var(--accent-gold);
+            padding: 18px 24px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 30px;
+        }
+
+        .exam-notes h3 {
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .exam-notes ul {
+            list-style-type: square;
+            padding-left: 20px;
+            color: #E2E8F0;
+        }
+
+        /* Timeline Grid */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 18px;
+        }
+
+        .timeline-item .century {
+            font-weight: 700;
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        /* Content Formatting */
+        h3.sub-heading {
+            color: #E2E8F0;
+            margin: 20px 0 10px 0;
+            font-size: 1.2rem;
+        }
+
+        ul, ol {
+            padding-left: 22px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #FFF;
+        }
+
+        .highlight {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* Footer Nav */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars-container">
+        <div class="nebula nebula-1"></div>
+        <div class="nebula nebula-2"></div>
+        <div class="nebula nebula-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <span class="badge">Trang 1 / 2 • Môn Lịch Sử Phật Giáo Việt Nam</span>
+            <h1>Quá Trình Du Nhập & Tiếp Biến Phật Giáo</h1>
+            <p class="subtitle">Tóm tắt 10 thế kỷ đầu & Nội dung chi tiết Câu 1 (Thế kỷ I - II sau SCN)</p>
+        </header>
+
+        <!-- Lưu ý làm bài -->
+        <div class="exam-notes">
+            <h3>📌 Lưu ý quan trọng khi làm bài tự luận (90 phút / 2 câu):</h3>
+            <ul>
+                <li>Bài làm phải có đủ 3 phần: <strong>Mở bài - Thân bài - Kết bài</strong>.</li>
+                <li>Ghi đúng thế kỷ bằng chữ số La Mã: <strong>Thế kỷ I, II, III...</strong> (Không dùng 1, 2, 3).</li>
+                <li>Dẫn chứng cụ thể, chính xác (đặc biệt các nội dung trong ngoặc kép hoặc tên tác phẩm/nhân vật).</li>
+            </ul>
+        </div>
+
+        <!-- Tóm tắt 10 thế kỷ đầu -->
+        <div class="card">
+            <h2 class="section-title">🌌 Tóm Tắt Lịch Sử Phật Giáo 10 Thế Kỷ Đầu</h2>
+            <div class="timeline-grid">
+                <div class="timeline-item">
+                    <div class="century">Thế kỷ I</div>
+                    <p>Phật giáo du nhập vào Việt Nam từ Ấn Độ bằng đường bộ và đường biển. Đã có chùa chiền, kinh điển, Tăng Ni.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="century">Thế kỷ II</div>
+                    <p>Trung tâm Phật giáo Luy Lâu (Giao Châu) ra đời. Mâu Tử viết <em>Lý Hoặc Luận</em> giải quyết các thành kiến sai lầm đối với Phật giáo.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="century">Thế kỷ III</div>
+                    <p>Thiền sư Khương Tăng Hội đặt nền móng cho Thiền học Việt Nam (Tổ sư thiền), giảng dạy <em>An Ban Thủ Ý</em> và <em>Lục Độ Tập Kinh</em>.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="century">Thế kỷ IV</div>
+                    <p>Tranh luận Phật giáo lần 2 với chủ đề "Đức Phật có hiện hữu giữa đời này hay không" (Thiền sư Đạo Ca & Pháp Minh).</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="century">Thế kỷ V</div>
+                    <p>Thiền sư Đàm Hoàng truyền bá pháp môn Tịnh độ tại chùa Tiên Du (núi Tiên Sơn).</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="century">Thế kỷ VI</div>
+                    <p>Thành lập thiền phái Tỳ Ni Đa Lưu Chi (chùa Pháp Vân), truyền thừa 19 thế hệ, ảnh hưởng tư tưởng Bát Nhã, Tịnh độ, Mật giáo.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="century">Thế kỷ IX</div>
+                    <p>Thành lập thiền phái Vô Ngôn Thông (820) tại chùa Kiến Sơ, truyền thừa 17 thế hệ. Tôn chỉ: <em>"Tâm địa nhược thông, tuệ nhật tự chiếu"</em>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chi tiết Câu 1 -->
+        <div class="card">
+            <h2 class="section-title">📜 CÂU 1: Quá Trình Du Nhập & Tiếp Biến Phật Giáo (Hai Thế Kỷ Đầu SCN)</h2>
+            
+            <h3 class="sub-heading" style="color: var(--accent-gold);">I. MỞ BÀI</h3>
+            <p>Lịch sử Phật giáo Việt Nam gắn bó mật thiết với lịch sử, văn hóa và con người Việt Nam. Trong đó, quá trình du nhập và tiếp biến trong 2 thế kỷ đầu SCN là dấu mốc có ý nghĩa đặc biệt, đặt nền móng cho sự hình thành các sắc thái Phật giáo Việt Nam đầu tiên và mở đầu cho hành trình đồng hành lâu dài cùng dân tộc.</p>
+
+            <h3 class="sub-heading" style="color: var(--accent-gold);">II. THÂN BÀI</h3>
+            
+            <h4 style="color: var(--accent-cyan); margin-top: 15px;">1. Bối cảnh lịch sử & Con đường du nhập</h4>
+            <ul>
+                <li><strong>Bối cảnh lịch sử:</strong> Việt Nam có vị trí địa lý quan trọng, có thương cảng Giao Châu là nơi hội tụ các nền văn hóa. Đầu SCN, Việt Nam bị các triều đại Trung Hoa đô hộ, áp đặt chính sách đồng hóa và truyền bá Nho - Lão nhưng chưa phù hợp với văn hóa Việt.</li>
+                <li><strong>Con đường du nhập:</strong> Phật giáo đến bằng con đường hòa bình, phù hợp với tâm thức người Việt. Truyền trực tiếp từ Ấn Độ sang qua đường biển và đường bộ từ thế kỷ I SCN.</li>
+                <li><strong>Chủ thể truyền đạo:</strong>
+                    <ul>
+                        <li><em>Thương nhân Ấn Độ:</em> Mang tín ngưỡng Phật giáo đến trong thời gian lưu trú chờ gió mùa (cúng dường, đốt hương, tụng tam quy, giữ 5 giới).</li>
+                        <li><em>Tăng sĩ Ấn Độ:</em> Các du tăng (Ma Ha Kỳ Vực, Khâu Đà La...) đi cùng thương thuyền để tuyên truyền giáo pháp và cầu nguyện an lành.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4 style="color: var(--accent-cyan); margin-top: 15px;">2. Sự hình thành & Vị thế Trung tâm Luy Lâu</h4>
+            <ul>
+                <li><strong>Vị thế:</strong> Hạ bán thế kỷ II, trung tâm Luy Lâu (Thuận Thành, Bắc Ninh) hình thành, sớm hơn hai trung tâm Bành Thành và Lạc Dương (Trung Hoa).</li>
+                <li><strong>Hoạt động sinh hoạt & học thuật:</strong>
+                    <ul>
+                        <li>Hình thành Tăng đoàn sớm (cao tăng Ấn Độ, Giao Châu, Trung Hoa).</li>
+                        <li>Dịch thuật khoảng 15 bộ kinh Phạn - Hán (như <em>Kinh Tứ Thập Nhị Chương</em>, <em>Kinh Duy Ma Cật</em>, các kinh Bản Sinh/Bản Sự).</li>
+                        <li>Tác phẩm <strong>Lý Hoặc Luận</strong> của Mâu Tử (cuối thế kỷ II) là văn kiện Phật giáo bằng chữ Hán cổ nhất còn lưu giữ.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h4 style="color: var(--accent-cyan); margin-top: 15px;">3. Quá trình tiếp biến văn hóa & Bản địa hóa</h4>
+            <ul>
+                <li><strong>Dung hợp Tín ngưỡng dân gian (Hệ thống Tứ Pháp):</strong> Biến các thần tự nhiên (Mây, Mưa, Sấm, Chớp) thành 4 vị Phật: <strong>Pháp Vân</strong> (Phật Mây), <strong>Pháp Vũ</strong> (Phật Mưa), <strong>Pháp Lôi</strong> (Phật Sấm), <strong>Pháp Điện</strong> (Phật Chớp) thờ tại trung tâm Luy Lâu (tiêu biểu là chùa Dâu).</li>
+                <li><strong>Hình tượng "Bụt" & Phật giáo chức năng:</strong> Đức Phật được tiếp nhận dưới hình tượng ông "Bụt" (từ <em>Buddha</em>), nhân từ, cứu khổ cứu nạn. Người dân cầu an, cầu mưa thuận gió hòa, mùa màng bội thu.</li>
+                <li><strong>Tiếp biến với Đạo đức & Hiếu đạo:</strong> Phù hợp với đạo lý hiếu thảo, tình cảm gia đình và tinh thần mến thiện của người Việt.</li>
+                <li><strong>Tam giáo hòa hợp (Mâu Tử - Lý Hoặc Luận):</strong> Dùng tư tưởng Nho gia và Đạo gia để giải thích giáo lý Phật giáo với hình ảnh so sánh: <em>"Xe và thuyền không đi cùng một lối, nhưng đều đưa người tới chốn"</em>.</li>
+            </ul>
+
+            <h3 class="sub-heading" style="color: var(--accent-gold);">III. KẾT BÀI</h3>
+            <p>Quá trình du nhập và tiếp biến Phật giáo trong 2 thế kỷ đầu diễn ra hòa bình, tự nhiên và sâu sắc, biến Phật giáo từ tôn giáo ngoại nhập thành một thành tố bản địa gắn bó chặt chẽ với đời sống văn hóa, tâm linh và đạo đức dân tộc Việt Nam.</p>
+        </div>
+
+        <footer>
+            <p>© Ôn tập Lịch Sử Phật Giáo Việt Nam • Bạn có thể lưu mã này thành file <code>.html</code> để mở trên trình duyệt!</p>
+        </footer>
+    </div>
+
+</body>
+</html>

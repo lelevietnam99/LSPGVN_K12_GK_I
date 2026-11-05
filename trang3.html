@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Tập Lịch Sử Phật Giáo Việt Nam - Trang 3</title>
+    <style>
+        :root {
+            --primary-glow: #7928CA;
+            --secondary-glow: #00F2FE;
+            --accent-gold: #FFD700;
+            --accent-pink: #FF0080;
+            --bg-card: rgba(15, 23, 42, 0.75);
+            --border-card: rgba(255, 255, 255, 0.15);
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            background: #030712;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        /* Background Vũ Trụ */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #090d16 0%, #030712 100%);
+            overflow: hidden;
+        }
+
+        .nebula {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.35;
+            animation: float 25s infinite alternate ease-in-out;
+        }
+
+        .nebula-1 {
+            top: -120px;
+            left: -80px;
+            background: var(--primary-glow);
+        }
+
+        .nebula-2 {
+            bottom: -120px;
+            right: -80px;
+            background: var(--accent-pink);
+            animation-delay: -10s;
+        }
+
+        .nebula-3 {
+            top: 45%;
+            left: 55%;
+            transform: translate(-50%, -50%);
+            background: #0284c7;
+            width: 420px;
+            height: 420px;
+            opacity: 0.22;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(70px, -50px) scale(1.12); }
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: linear-gradient(90deg, var(--primary-glow), var(--accent-pink));
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFF 30%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Card Section */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(0, 242, 254, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--secondary-glow);
+            border-bottom: 2px solid rgba(0, 242, 254, 0.2);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Quote / Highlight Box */
+        .quote-box {
+            background: rgba(255, 215, 0, 0.08);
+            border-left: 4px solid var(--accent-gold);
+            padding: 18px 24px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 25px;
+            color: #E2E8F0;
+        }
+
+        .quote-box .poem {
+            font-style: italic;
+            margin-top: 10px;
+            color: var(--accent-gold);
+            line-height: 1.8;
+            padding-left: 15px;
+            border-left: 2px solid rgba(255, 215, 0, 0.4);
+        }
+
+        /* Content Formatting */
+        h3.sub-heading {
+            color: var(--accent-gold);
+            margin: 25px 0 12px 0;
+            font-size: 1.25rem;
+        }
+
+        h4.part-heading {
+            color: var(--secondary-glow);
+            margin: 18px 0 10px 0;
+            font-size: 1.1rem;
+        }
+
+        ul, ol {
+            padding-left: 22px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #FFF;
+        }
+
+        .highlight-gold {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .highlight-cyan {
+            color: var(--secondary-glow);
+            font-weight: 600;
+        }
+
+        /* Grid Cards */
+        .role-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .role-card {
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            padding: 20px;
+        }
+
+        .role-card h5 {
+            color: var(--accent-gold);
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        /* Footer Nav */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars-container">
+        <div class="nebula nebula-1"></div>
+        <div class="nebula nebula-2"></div>
+        <div class="nebula nebula-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <span class="badge">Trang 3 / 3 • Môn Lịch Sử Phật Giáo Việt Nam</span>
+            <h1>Thiền Sư Vạn Hạnh & Khai Sáng Triều Lý</h1>
+            <p class="subtitle">Nội dung chi tiết: Vai trò của Thiền sư Vạn Hạnh trong việc khai sáng vương triều nhà Lý & kiến tạo Phật quốc Đại Việt</p>
+        </header>
+
+        <!-- Trích dẫn kệ Thị Tịch -->
+        <div class="quote-box">
+            <strong>✨ Bài kệ Thị Tịch nổi tiếng của Thiền sư Vạn Hạnh:</strong>
+            <div class="poem">
+                "Thân như điện ảnh hữu hoàn vô,<br>
+                Vạn mộc xuân vinh thu hữu khô.<br>
+                Nhậm vận thịnh suy vô bố uý,<br>
+                Thịnh suy như lộ thảo đầu phô."
+            </div>
+            <p style="margin-top: 8px; font-size: 0.95rem; color: #CBD5E1;">
+                <em>(Thân như bóng chớp có rồi không / Cây cối xuân tươi thu héo cằn / Nhậm vận thịnh suy không sợ hãi / Thịnh suy như hạt sương trên đầu cỏ)</em>
+            </p>
+        </div>
+
+        <!-- Chi tiết bài học -->
+        <div class="card">
+            <h2 class="section-title">📜 ĐỀ BÀI: Vai Trò Của Thiền Sư Vạn Hạnh Trong Việc Khai Sáng Triều Lý & Kiến Tạo Phật Quốc Đại Việt</h2>
+
+            <!-- I. MỞ BÀI -->
+            <h3 class="sub-heading">I. MỞ BÀI</h3>
+            <p>Thiền sư Vạn Hạnh là nhân vật kiệt xuất của Phật giáo và lịch sử dân tộc Việt Nam vào cuối thế kỷ X – đầu thế kỷ XI. Thuộc dòng <span class="highlight-cyan">Thiền Tỳ Ni Đa Lưu Chi</span>, Ngài được xem là người có công lớn nhất trong việc khai sáng vương triều nhà Lý và đặt nền móng tư tưởng cho mô hình <span class="highlight-gold">Phật quốc Đại Việt</span>. Trong bối cảnh nhà Tiền Lê suy yếu, xã hội rối ren, Thiền sư Vạn Hạnh đã đóng vai trò then chốt trong việc chuyển giao quyền lực một cách hòa bình, mở ra thời kỳ độc lập, tự chủ và hưng thịnh lâu dài của dân tộc.</p>
+
+            <!-- II. THÂN BÀI -->
+            <h3 class="sub-heading">II. THÂN BÀI</h3>
+
+            <div class="role-grid">
+                <div class="role-card">
+                    <h5>1. Nền tảng tư tưởng & Tu học</h5>
+                    <p>Ngài họ Nguyễn, quê Cổ Pháp (Bắc Ninh), thông học Tam giáo (Nho - Phật - Lão). Xuất gia năm 21 tuổi, tu tập pháp môn <em>Tổng trì tam-ma-địa</em>, thấu triệt tinh thần Bát Nhã và Kim Cương. Ngài phát triển tinh thần <strong>Phật giáo nhập thế</strong>, lấy phụng sự đất nước làm môi trường hành đạo.</p>
+                </div>
+                <div class="role-card">
+                    <h5>2. Chuẩn bị nhân sự chuyển giao</h5>
+                    <p>Nhận thấy Tiền Lê suy yếu, Ngài chủ động phát hiện, nhận nuôi và giáo dục <span class="highlight-cyan">Lý Công Uẩn</span> từ nhỏ, đánh giá là bậc "phi thường có thể giúp đời yên dân". Đưa Lý Công Uẩn vào triều giữ chức Điện tiền Chỉ huy sứ, tạo uy tín và quyền lực vững chắc.</p>
+                </div>
+                <div class="role-card">
+                    <h5>3. Định hướng dư luận bằng sấm ký</h5>
+                    <p>Vận dụng sấm vĩ như công cụ chính trị - tư tưởng để định hướng dư luận xã hội. Giải thích các điềm lạ và lưu truyền hệ thống sấm ký (11–13 bài), tạo sự đồng thuận rộng rãi để Lý Công Uẩn lên ngôi năm 1009 hòa bình, hợp lòng dân.</p>
+                </div>
+                <div class="role-card">
+                    <h5>4. Tham mưu dời đô Thăng Long</h5>
+                    <p>Cố vấn chiến lược dời đô từ vùng núi hiểm trở Hoa Lư ra đồng bằng trung tâm <span class="highlight-gold">Đại La (Thăng Long)</span> năm 1010, mở ra thế chiến lược phát triển bền vững cho đất nước.</p>
+                </div>
+            </div>
+
+            <h4 class="part-heading" style="margin-top: 25px;">5. Kiến tạo mô hình Phật quốc Đại Việt</h4>
+            <ul>
+                <li><strong>Trị quốc bằng Từ bi & Triết lý Phật giáo:</strong> Định hình nhà nước lấy tinh thần từ bi, trí tuệ, nhân quả và hiếu sinh làm nền tảng quản trị quốc gia.</li>
+                <li><strong>Mối quan hệ Hữu cơ giữa Đạo pháp & Dân tộc:</strong>
+                    <ul>
+                        <li>Muốn quốc gia hưng thịnh thì phải phát triển Phật giáo làm nền tảng đạo đức và trí tuệ.</li>
+                        <li>Ngược lại, muốn Đạo pháp hưng hưng thì đất nước phải có độc lập, chủ quyền và hòa bình.</li>
+                    </ul>
+                </li>
+                <li><strong>Giá trị thái độ nhập thế:</strong> Bài kệ thị tịch thể hiện cái nhìn thấu suốt vô thường, không yếm thế, chủ động trước biến thiên lịch sử, trọn đời xả thân phụng sự đạo pháp và dân tộc.</li>
+            </ul>
+
+            <!-- III. KẾT BÀI -->
+            <h3 class="sub-heading">III. KẾT BÀI</h3>
+            <p>Thiền sư Vạn Hạnh là bậc đại trí thức Phật giáo, nhà kiến tạo lịch sử kiệt xuất của dân tộc. Ngài không chỉ thành tựu đạo nghiệp cá nhân mà còn trực tiếp khai sáng vương triều nhà Lý, đặt nền móng kiến tạo một <span class="highlight-gold">Phật quốc Đại Việt</span> hòa quyện giữa Đạo pháp và Dân tộc, mở ra kỷ nguyên độc lập, tự chủ và phát triển rực rỡ nhất trong lịch sử Việt Nam.</p>
+        </div>
+
+        <footer>
+            <p>© Bộ 3 Trang HTML Ôn Tập Lịch Sử Phật Giáo Việt Nam • Chúc bạn học tốt và thi đạt kết quả cao nhất!</p>
+        </footer>
+    </div>
+
+</body>
+</html>

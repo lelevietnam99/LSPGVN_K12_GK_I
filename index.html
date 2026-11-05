@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ôn Tập Lịch Sử Phật Giáo Việt Nam - Trang 6</title>
+    <style>
+        :root {
+            --primary-glow: #7928CA;
+            --secondary-glow: #00F2FE;
+            --accent-gold: #FFD700;
+            --accent-green: #10B981;
+            --accent-red: #EF4444;
+            --bg-card: rgba(15, 23, 42, 0.8);
+            --border-card: rgba(255, 255, 255, 0.15);
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            background: #030712;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        /* Background Vũ Trụ */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #09101d 0%, #030712 100%);
+            overflow: hidden;
+        }
+
+        .nebula {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.35;
+            animation: float 22s infinite alternate ease-in-out;
+        }
+
+        .nebula-1 {
+            top: -100px;
+            left: 20%;
+            background: var(--primary-glow);
+        }
+
+        .nebula-2 {
+            bottom: -100px;
+            right: 10%;
+            background: var(--secondary-glow);
+            animation-delay: -11s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(60px, -50px) scale(1.15); }
+        }
+
+        /* Layout Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+            padding: 30px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.15);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background: linear-gradient(90deg, var(--secondary-glow), var(--primary-glow));
+            color: #000;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFF 30%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .nav-btn {
+            padding: 10px 18px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-card);
+            color: var(--text-main);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: linear-gradient(135deg, var(--primary-glow), var(--secondary-glow));
+            border-color: transparent;
+            color: #FFF;
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+        }
+
+        /* Card Section */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--accent-gold);
+            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Score Tracker */
+        .score-board {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid var(--accent-gold);
+            border-radius: 12px;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .score-board div {
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        /* Quiz Container */
+        .quiz-question-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+
+        .quiz-question-box .q-num {
+            color: var(--secondary-glow);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-box .q-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #FFF;
+            margin-bottom: 16px;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+        }
+
+        .option-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 12px 16px;
+            color: var(--text-main);
+            text-align: left;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .option-btn:hover:not([disabled]) {
+            background: rgba(0, 242, 254, 0.15);
+            border-color: var(--secondary-glow);
+        }
+
+        .option-btn.correct {
+            background: rgba(16, 185, 129, 0.25) !important;
+            border-color: var(--accent-green) !important;
+            color: #6EE7B7 !important;
+            font-weight: bold;
+        }
+
+        .option-btn.wrong {
+            background: rgba(239, 68, 68, 0.25) !important;
+            border-color: var(--accent-red) !important;
+            color: #FCA5A5 !important;
+        }
+
+        .explanation {
+            margin-top: 12px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: rgba(0, 242, 254, 0.08);
+            border-left: 3px solid var(--secondary-glow);
+            font-size: 0.9rem;
+            color: #CBD5E1;
+            display: none;
+        }
+
+        /* Interactive Checklist */
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.2s;
+        }
+
+        .checklist-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .checklist-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--accent-gold);
+            cursor: pointer;
+        }
+
+        .checklist-item.completed {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        /* Footer Nav */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars-container">
+        <div class="nebula nebula-1"></div>
+        <div class="nebula nebula-2"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <span class="badge">Trang 6 • Ôn Tập Lịch Sử Phật Giáo Việt Nam</span>
+            <h1>Trắc Nghiệm Tương Tác & Kiểm Tra Kiến Thức</h1>
+            <p class="subtitle">Hệ thống câu hỏi tự kiểm tra kết quả học tập từ Trang 1 đến Trang 5</p>
+        </header>
+
+        <!-- Thanh Điều Hướng Nhanh Giữa Các Trang -->
+        <div class="nav-bar">
+            <a href="trang1.html" class="nav-btn">Trang 1: TK I - II</a>
+            <a href="trang2.html" class="nav-btn">Trang 2: Thiền Sư Khương Tăng Hội</a>
+            <a href="trang3.html" class="nav-btn">Trang 3: Thiền Sư Vạn Hạnh</a>
+            <a href="trang4.html" class="nav-btn">Trang 4: Hai Thiền Phái</a>
+            <a href="trang5.html" class="nav-btn">Trang 5: Bảng So Sánh</a>
+            <a href="index.html" class="nav-btn active">Trang 6: Trắc Nghiệm</a>
+        </div>
+
+        <!-- Bảng Điểm Tương Tác -->
+        <div class="score-board">
+            <div>🎯 Điểm Số Trắc Nghiệm: <span id="score-val" style="color: var(--accent-gold);">0</span> / <span id="total-val">8</span></div>
+            <button onclick="resetQuiz()" style="background: rgba(255,255,255,0.1); border: 1px solid var(--border-card); color: #FFF; padding: 6px 14px; border-radius: 8px; cursor: pointer;">Làm lại bài test</button>
+        </div>
+
+        <!-- Khối Đề Trắc Nghiệm -->
+        <div class="card">
+            <h2 class="section-title">
+                <span>📝 Bài Kiểm Tra Trắc Nghiệm Nhanh</span>
+                <span style="font-size: 0.9rem; font-weight: normal; color: var(--text-muted);">(Nhấp vào đáp án để xem ngay kết quả)</span>
+            </h2>
+
+            <!-- Câu 1 -->
+            <div class="quiz-question-box" id="q1">
+                <div class="q-num">Câu Hỏi 1</div>
+                <div class="q-text">Tác phẩm Phật giáo bằng chữ Hán cổ nhất còn lưu giữ được sáng tác tại Giao Châu cuối thế kỷ II là tác phẩm nào?</div>
+                <div class="options-grid">
+                    <button class="option-btn" onclick="checkAnswer('q1', 0, false)">A. Kinh An Ban Thủ Ý</button>
+                    <button class="option-btn" onclick="checkAnswer('q1', 1, true)">B. Lý Hoặc Luận (Mâu Tử)</button>
+                    <button class="option-btn" onclick="checkAnswer('q1', 2, false)">C. Lục Độ Tập Kinh</button>
+                    <button class="option-btn" onclick="checkAnswer('q1', 3, false)">D. Kinh Tứ Thập Nhị Chương</button>
+                </div>
+                <div class="explanation"><strong>Chính xác!</strong> Tác phẩm <em>Lý Hoặc Luận</em> do Mâu Tử (Mâu Bác) sáng tác cuối thế kỷ II tại Giao Châu là văn kiện Phật giáo bằng chữ Hán cổ nhất còn lưu giữ được.</div>
+            </div>
+
+            <!-- Câu 2 -->
+            <div class="quiz-question-box" id="q2">
+                <div class="q-num">Câu Hỏi 2</div>
+                <div class="q-text">Danh xưng nào tôn vinh Thiền sư Khương Tăng Hội trong lịch sử Phật giáo Việt Nam?</div>
+                <div class="options-grid">
+                    <button class="option-btn" onclick="checkAnswer('q2', 0, false)">A. Tổ sư Mật Tông</button>
+                    <button class="option-btn" onclick="checkAnswer('q2', 1, false)">B. Khai sơn Trúc Lâm</button>
+                    <button class="option-btn" onclick="checkAnswer('q2', 2, true)">C. Sơ tổ Thiền học Việt Nam</button>
+                    <button class="option-btn" onclick="checkAnswer('q2', 3, false)">D. Pháp chủ Giáo hội</button>
+                </div>
+                <div class="explanation"><strong>Chính xác!</strong> Thiền sư Khương Tăng Hội được lịch sử tôn vinh là Sơ tổ Thiền học Việt Nam, người mở lớp dạy thiền cho 300 thiền sinh tại Luy Lâu vào thế kỷ III.</div>
+            </div>
+
+            <!-- Câu 3 -->
+            <div class="quiz-question-box" id="q3">
+                <div class="q-num">Câu Hỏi 3</div>
+                <div class="q-text">Tín ngưỡng Tứ Pháp tại trung tâm Luy Lâu bao gồm 4 vị Phật đại diện cho các hiện tượng tự nhiên nào?</div>
+                <div class="options-grid">
+                    <button class="option-btn" onclick="checkAnswer('q3', 0, false)">A. Đất, Nước, Lửa, Gió</button>
+                    <button class="option-btn" onclick="checkAnswer('q3', 1, true)">B. Mây, Mưa, Sấm, Chớp</button>
+                    <button class="option-btn" onclick="checkAnswer('q3', 2, false)">C. Trời, Đất, Sông, Núi</button>
+                    <button class="option-btn" onclick="checkAnswer('q3', 3, false)">D. Kim, Mộc, Thủy, Hỏa</button>
+                </div>
+                <div class="explanation"><strong>Chính xác!</strong> Tứ Pháp gồm: Pháp Vân (Mây), Pháp Vũ (Mưa), Pháp Lôi (Sấm), Pháp Điện (Chớp) thờ phụng tại vùng Luy Lâu (chùa Dâu).</div>
+            </div>
+
+            <!-- Câu 4 -->
+            <div class="quiz-question-box" id="q4">
+                <div class="q-num">Câu Hỏi 4</div>
+                <div class="q-text">Thiền phái Vô Ngôn Thông được thành lập vào năm nào và tại ngôi chùa nào?</div>
+                <div class="options-grid">
+                    <button class="option-btn" onclick="checkAnswer('q4', 0, false)">A. Năm 580 SCN - Chùa Pháp Vân</button>
+                    <button class="option-btn" onclick="checkAnswer('q4', 1, true)">B. Năm 820 SCN - Chùa Kiến Sơ</button>
+                    <button class="option-btn" onclick="checkAnswer('q4', 2, false)">C. Năm 1009 SCN - Chùa Dâu</button>
+                    <button class="option-btn" onclick="checkAnswer('q4', 3, false)">D. Năm 280 SCN - Chùa Tiên Du</button>
+                </div>
+                <div class="explanation"><strong>Chính xác!</strong> Thiền phái Vô Ngôn Thông do Thiền sư Vô Ngôn Thông thành lập năm 820 SCN tại chùa Kiến Sơ (Gia Lâm, Hà Nội).</div>
+            </div>
+
+            <!-- Câu 5 -->
+            <div class="quiz-question-box" id="q5">
+                <div class="q-num">Câu Hỏi 5</div>
+                <div class="q-text">Tôn chỉ "Tâm địa nhược thông, tuệ nhật tự chiếu" thuộc về Thiền phái nào?</div>
+                <div class="options-grid">
+                    <button class="option-btn" onclick="checkAnswer('q5', 0, false)">A. Thiền phái Tỳ Ni Đa Lưu Chi</button>
+                    <button class="option-btn" onclick="checkAnswer('q5', 1, true)">B. Thiền phái Vô Ngôn Thông</button>
+                    <button class="option-btn" onclick="checkAnswer('q5', 2, false)">C. Thiền phái Thảo Đường</button>
+                    <button class="option-btn" onclick="checkAnswer('q5', 3, false)">D. Thiền phái Trúc Lâm Yên Tử</button>
+                </div>
+                <div class="explanation"><strong>Chính xác!</strong> Đó là tôn chỉ của Thiền phái Vô Ngôn Thông (Thế kỷ IX).</div>
+            </div>
+
+            <!-- Câu 6 -->
+            <div class="quiz-question-box" id="q6">
+                <div class="q-num">Câu Hỏi 6</div>
+                <div class="q-text">Thiền sư Vạn Hạnh thuộc dòng Thiền phái nào?</div>
+                <div class="options-grid">
+                    <button class="option-btn" onclick="checkAnswer('q6', 0, true)">A. Thiền phái Tỳ Ni Đa Lưu Chi</button>
+                    <button class="option-btn" onclick="checkAnswer('q6', 1, false)">B. Thiền phái Vô Ngôn Thông</button>
+                    <button class="option-btn" onclick="checkAnswer('q6', 2, false)">C. Thiền phái Lâm Tế</button>
+                    <button class="option-btn" onclick="checkAnswer('q6', 3, false)">D. Thiền phái Tào Động</button>
+                </div>
+                <div class="explanation"><strong>Chính xác!</strong> Thiền sư Vạn Hạnh thuộc thế hệ truyền thừa thứ 12 của Thiền phái Tỳ Ni Đa Lưu Chi.</div>
+            </div>
+
+            <!-- Câu 7 -->
+            <div class="quiz-question-box" id="q7">
+                <div class="q-num">Câu Hỏi 7</div>
+                <div class="q-text">Hình tượng Đức Phật thời kỳ đầu du nhập được nhân dân Việt Nam tiếp nhận dưới tên gọi dân gian gần gũi nào?</div>
+                <div class="options-grid">
+                    <button class="option-btn" onclick="checkAnswer('q7', 0, true)">A. Ông "Bụt"</button>
+                    <button class="option-btn" onclick="checkAnswer('q7', 1, false)">B. Ông "Thần"</button>
+                    <button class="option-btn" onclick="checkAnswer('q7', 2, false)">C. Ông "Tiên"</button>
+                    <button class="option-btn" onclick="checkAnswer('q7', 3, false)">D. Đức "Thánh"</button>
+                </div>
+                <div class="explanation"><strong>Chính xác!</strong> "Bụt" là phiên âm trực tiếp từ chữ *Buddha* trong tiếng Phạn thời kỳ đầu du nhập từ Ấn Độ.</div>
+            </div>
+
+            <!-- Câu 8 -->
+            <div class="quiz-question-box" id="q8">
+                <div class="q-num">Câu Hỏi 8</div>
+                <div class="q-text">Sáu bức thư giải thích cho Thứ sử Lý Miễu ở thế kỷ IV liên quan đến cuộc tranh luận Phật giáo nào?</div>
+                <div class="options-grid">
+                    <button class="option-btn" onclick="checkAnswer('q8', 0, false)">A. Phật giáo du nhập bằng đường nào</button>
+                    <button class="option-btn" onclick="checkAnswer('q8', 1, true)">B. "Đức Phật có hiện hữu giữa đời này hay không"</button>
+                    <button class="option-btn" onclick="checkAnswer('q8', 2, false)">C. Nên tu Thiền hay tu Tịnh độ</button>
+                    <button class="option-btn" onclick="checkAnswer('q8', 3, false)">D. Tranh luận về việc dời đô Thăng Long</button>
+                </div>
+                <div class="explanation"><strong>Chính xác!</strong> Thiền sư Đạo Ca và Pháp Minh đã dùng 6 bức thư gửi Lý Miễu để giải thích chủ đề "Đức Phật có hiện hữu giữa đời này hay không".</div>
+            </div>
+        </div>
+
+        <!-- Checklist Ôn Thi -->
+        <div class="card">
+            <h2 class="section-title">✅ Danh Sách Mục Tiêu Ôn Tập (Checklist)</h2>
+            <p style="margin-bottom: 15px; color: var(--text-muted);">Đánh dấu vào các mục bạn đã thuộc lòng trước khi bước vào phòng thi:</p>
+
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox">
+                <span>Nắm vững quy tắc làm bài tự luận (Có Mở - Thân - Kết, ghi thế kỷ bằng số La Mã I, II...).</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox">
+                <span>Thuộc tóm tắt lịch sử Phật giáo 10 thế kỷ đầu.</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox">
+                <span>Trình bày trôi chảy Câu 1: Quá trình du nhập & tiếp biến Phật giáo 2 thế kỷ đầu SCN.</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox">
+                <span>Trình bày chi tiết Câu 2: Vai trò của Thiền sư Khương Tăng Hội đối với Thiền học thế kỷ III.</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox">
+                <span>Phân tích vai trò của Thiền sư Vạn Hạnh trong việc khai sáng triều Lý & kiến tạo Phật quốc.</span>
+            </div>
+            <div class="checklist-item" onclick="toggleCheck(this)">
+                <input type="checkbox">
+                <span>So sánh điểm giống và khác nhau giữa Thiền phái Tỳ Ni Đa Lưu Chi và Vô Ngôn Thông.</span>
+            </div>
+        </div>
+
+        <footer>
+            <p>© Trọn Bộ 6 Trang HTML Ôn Tập Lịch Sử Phật Giáo Việt Nam • Chúc bạn đạt kết quả Xuất Sắc trong kỳ thi!</p>
+        </footer>
+    </div>
+
+    <script>
+        let score = 0;
+        let answeredQ = {};
+
+        function checkAnswer(qId, btnIdx, isCorrect) {
+            if (answeredQ[qId]) return;
+            answeredQ[qId] = true;
+
+            const box = document.getElementById(qId);
+            const buttons = box.querySelectorAll('.option-btn');
+            const exp = box.querySelector('.explanation');
+
+            if (isCorrect) {
+                buttons[btnIdx].classList.add('correct');
+                score++;
+                document.getElementById('score-val').innerText = score;
+            } else {
+                buttons[btnIdx].classList.add('wrong');
+                // Highlight correct answer
+                buttons.forEach((btn, idx) => {
+                    if (btn.getAttribute('onclick').includes('true')) {
+                        btn.classList.add('correct');
+                    }
+                });
+            }
+
+            buttons.forEach(btn => btn.setAttribute('disabled', 'true'));
+            exp.style.display = 'block';
+        }
+
+        function resetQuiz() {
+            score = 0;
+            answeredQ = {};
+            document.getElementById('score-val').innerText = 0;
+
+            const boxes = document.querySelectorAll('.quiz-question-box');
+            boxes.forEach(box => {
+                const buttons = box.querySelectorAll('.option-btn');
+                const exp = box.querySelector('.explanation');
+                buttons.forEach(btn => {
+                    btn.classList.remove('correct', 'wrong');
+                    btn.removeAttribute('disabled');
+                });
+                exp.style.display = 'none';
+            });
+        }
+
+        function toggleCheck(el) {
+            const chk = el.querySelector('input[type="checkbox"]');
+            if (event.target !== chk) {
+                chk.checked = !chk.checked;
+            }
+            if (chk.checked) {
+                el.classList.add('completed');
+            } else {
+                el.classList.remove('completed');
+            }
+        }
+    </script>
+</body>
+</html>
